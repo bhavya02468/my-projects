@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript password strength</title>
+    <link rel="stylesheet" href="styles.css" />
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"  aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" id="home" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" id="projects" href="#">Projects</a>
+                    <a class="nav-link active" href="#">About Me</a>
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <form action="" id="form">
+
+
+        <label> enter your Name <input id="name"> <br></label></input>
+
+
+        <label> enter your Mobile Number<input id="mobile"> <br> </label></input>
+
+
+        <label> enter the Password <input id="pass" type="password"> <br></label></input>
+
+
+        <input type="submit">
+
+    </form>
+
+
+
+
+</head>
+<script src="jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#projects").click(function () {
+            location.href = "project%203.html";
+        })
+        $("#home").click(function () {
+            location.href = "index.html";
+        })
+
+
+        $("#form").submit(function () {
+            let n = $("#name").val();
+
+            let m = $("#mobile").val();
+
+            let p = $("#pass").val();
+
+
+            //alert(n+"s")
+
+
+
+
+            if (n === "") {
+                alert("enter a valid Name :")
+            } else if (m === "") {
+                alert("enter a valid Mobile Number :")
+            }
+            // } else if (p === "") {
+            //     alert("enter a valid Passsword :")
+            // }
+
+
+
+
+
+            else {
+                if (p.search(n) != -1 || p.search(m) != -1) {
+
+
+
+                    var v = ""
+
+                    var x = m.split("")
+
+                    var y = n.split("")
+
+
+                    for (i in x) {
+
+                        //let u=Math.floor((Math.random() * x.length) + 0);
+
+
+                        let o = Math.floor((Math.random() * y.length) + 0);
+
+                        v = v + x[i] + y[o]
+
+                    }
+                    //v=v+"@#$%"
+                    alert(`the given password is weak and you should not use this password anywhere. A better password is ${v}`)
+
+                } else if (p === "") {
+
+
+
+                    var v = ""
+
+                    var x = m.split("")
+
+                    var y = n.split("")
+
+
+                    for (i in x) {
+
+                        //let u=Math.floor((Math.random() * x.length) + 0);
+
+
+                        let o = Math.floor((Math.random() * y.length) + 0);
+
+                        v = v + x[i] + y[o]
+
+                    }
+                    //v=v+"@#$%"
+                    alert(`No password is entered, we suggest this password ${v}`)
+                }
+
+
+                else {
+                    alert("the given password is strong and can be used")
+
+
+                }
+            }
+
+
+        })
+    })
+
+
+</script>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

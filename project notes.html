@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Project</title>
+    <link rel="stylesheet" href="style2.css" />
+    <!-- As a heading -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" id="home" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" id="projects" href="#">Projects</a>
+                    <a class="nav-link active" href="#">About Me</a>
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <form action="" id="todoListForm">
+        <label style="font-size:30px ;font-weight: bold;text-align: center;">enter<br><input type="text" id="text"
+                style="height:50px ;width: auto;font-weight: bold;"></label>
+
+
+
+
+        <!-- <button id="minus"  style="height:50px"></button> -->
+
+
+
+
+
+    </form>
+    <div style="text-align:center;">
+
+        <input id="minus" type="button" value="add"></input>
+        <h3 style="font-size:50px;font-weight:bold;">To Do list</h3>
+
+    </div>
+
+
+
+
+    <div id="content" class="card" style="width: 18rem;align-self: center;">
+
+    </div>
+
+
+
+
+    <script src="jquery-3.6.0.js"></script>
+    <script src="notes making.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            let i = 0
+            let j = 0
+
+
+            $("#projects").click(function () {
+                location.href = "project%203.html";
+            })
+            $("#home").click(function () {
+                location.href = "index.html";
+            })
+            document.getElementById("minus").addEventListener("click", function (event) {
+                event.preventDefault();
+                let z = $("#text").val();
+                if (z.length > 0) {
+                    if (j < 5) {
+                        ++j
+                        $("#content").append(
+                            $(document.createElement('div')).prop({
+                                id: ++i,
+                                class: "card-title"
+
+                            }))
+
+
+                        var div = document.getElementById(i)
+
+                        p = document.createElement("p");
+                        z = "=>" + z
+                        p.innerHTML = z;
+                        c = document.createElement("input");
+                        //f = document.createElement("input");
+                        div.append(p);
+
+                        //div.append(f);
+                        var open = false
+
+                        //$(f).attr({ type: 'button', name: 'btn1', value: 'edit', })
+                        $(p).dblclick(function () {
+                            open = !open
+
+                            if (open) {
+                                $(p).attr({ contentEditable: "true" });
+                            } else {
+                                $(p).attr({ contentEditable: "false" })
+                            }
+
+
+                        })
+
+                        div.append(c);
+
+
+                        ;
+                        console.log(j)
+
+                        if (j === 1) {
+                            $(c).attr({ type: 'button', name: 'btn2', value: 'delete', hidden: true })
+                        }
+
+                        else {
+
+                            $("#content").children().first().children().last().removeAttr('hidden')
+
+                            $(c).attr({ type: 'button', name: 'btn2', value: 'delete', })
+                            $("#content").children().first().children().last().removeAttr("hidden")
+                        }
+
+
+                        
+
+                        $(c).click(function () {
+                            div.remove();
+                            j = j - 1
+                            console.log(j)
+                            if (j === 1) {
+                                $("#content").children().first().children().last().attr({ type: 'button', name: 'btn2', value: 'delete', hidden: true })
+                            }
+
+                        })
+
+                    } else {
+                        alert("Please enter only five values.")
+                    }
+
+                } else {
+                    alert("dont leave the box empty")
+                }
+
+
+
+
+            })
+
+        })
+
+    </script>
+
+</html>

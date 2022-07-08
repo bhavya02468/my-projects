@@ -1,0 +1,32 @@
+
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+
+
+input{
+    background-color: #4557d2;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+}
+
+
+textarea {
+    background-color: #058484;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+}
+
+/* 
+
+button[id="minus"]{
+    display: block;
+    margin: 0.5rem 0;
+}
+
+input[type="file"] {
+    padding: 1px 2px;
+} */
